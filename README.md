@@ -543,7 +543,7 @@ ReactDOM.render(
 )
 ```
 
-###(1) 设置组件的默认props
+### (1) 设置组件的默认props
 
 ```jsx
 import React, { Component, Fragment } from 'react'
@@ -639,7 +639,7 @@ $ npm i prop-types -S
 
 
 
-##2、状态(state)
+## 2、状态(state)
 
 状态就是组件描述某种显示情况的数据，由组件自己设置和更改，也就是说由组件自己维护，使用状态的目的就是为了在不同的状态下使组件的显示不同(自己管理)
 
@@ -710,7 +710,7 @@ ReactDOM.render(
 
 `this.props`和`this.state`是纯js对象,在vue中，data属性是利用`Object.defineProperty`处理过的，更改​data的数据的时候会触发数据的`getter`和`setter`，但是React中没有做这样的处理，如果直接更改的话，react是无法得知的，所以，需要使用特殊的更改状态的方法`setState`。
 
-###(2) setState
+### (2) setState
 
 `isLiked` 存放在实例的 `state` 对象当中，组件的 `render` 函数内，会根据组件的 `state` 的中的`isLiked`不同显示“取消”或“收藏”内容。下面给 `button` 加上了点击的事件监听。
 
@@ -812,7 +812,7 @@ console.log('setState外部的',this.state.isLiked)
 
 
 
-##4、状态提升
+## 4、状态提升
 
 如果有多个组件共享一个数据，把这个数据放到共同的父级组件中来管理
 
