@@ -932,7 +932,7 @@ ReactDOM.render(
 
 
 
-##5、处理用户输入
+## 5、处理用户输入
 
 ```jsx
 import React, { Component } from 'react'
@@ -1402,7 +1402,7 @@ ReactDOM.render(
 
 
 
-#十、TodoList
+# 十、TodoList
 
 组件化开发React todolist， 项目开发中的组件的基本目录结构基本上是这样的：
 
