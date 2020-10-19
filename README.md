@@ -1440,7 +1440,7 @@ React中组件也有生命周期，也就是说也有很多钩子函数供我们
 
    
 
-##2、更新阶段
+## 2、更新阶段
 
 `props`或`state`的改变可能会引起组件的更新，组件重新渲染的过程中会调用以下方法： 
 
@@ -1454,19 +1454,19 @@ React中组件也有生命周期，也就是说也有很多钩子函数供我们
 
 
 
-##3、卸载阶段
+## 3、卸载阶段
 
 1. componentWillUnmount()
 
 
 
-##4、错误处理
+## 4、错误处理
 
 1. componentDidCatch()
 
 
 
-##5、各生命周期详解
+## 5、各生命周期详解
 
 **(1) constructor(props)**
 
@@ -1661,7 +1661,7 @@ React不会在组件初始化props时调用这个方法。调用`this.setState`�
 
 
 
-##6、PureComponent
+## 6、PureComponent
 
 `PureComponnet`里如果接收到的新属性或者是更改后的状态和原属性、原状态相同的话，就不会去重新render了
 在里面也可以使用`shouldComponentUpdate`，而且。是否重新渲染以`shouldComponentUpdate`的返回值为最终的决定因素。
@@ -1676,7 +1676,7 @@ class YourComponent extends PureComponent {
 
 
 
-##7、ref
+## 7、ref
 
 React提供的这个`ref`属性，表示为对组件真正实例的引用，其实就是`ReactDOM.render()`返回的组件实例,`ref`可以挂载到组件上也可以是dom元素上。
 
