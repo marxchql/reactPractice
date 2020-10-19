@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Child from './Child.jsx';
+import Child from './Child2.jsx';
 
 class App extends Component {
   // constructor就是Initialization阶段的生命周期钩子
@@ -13,9 +13,9 @@ class App extends Component {
       a: 3
     }
 
-    this.staticState = {
-      c: 4
-    }
+    // this.staticState = {
+    //   c: 4
+    // }
 
     // 改变方法的this指向
     // this.handleClick = this.handleClick.bind(this)
@@ -38,7 +38,7 @@ class App extends Component {
     // console.log(this.staticState.c)
     return (
       <div>
-        <Child title={ this.state.a } />
+        <Child title={ this.state.a }/>
       </div>
     );
   }
@@ -60,9 +60,9 @@ class App extends Component {
   //   // 父组件传递过来的props发生改变的时候触发
   // }
 
-  componentWillUnmount() {
-    console.log('componentWillUnmount')
-  }
+  // componentWillUnmount() {
+  //   console.log('componentWillUnmount')
+  // }
 }
 
 export default App;
