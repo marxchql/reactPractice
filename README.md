@@ -1998,9 +1998,9 @@ export default Page;
 
 
 
-#十五、状态管理
+# 十五、状态管理
 
-##1、传统MVC框架的缺陷
+## 1、传统MVC框架的缺陷
 
 **什么是MVC？**
 
@@ -2020,7 +2020,7 @@ MVC框架的数据流很理想，请求先到Controller, 由Controller调用Mode
 
 ![image-20190420012010718](./images/defect-of-mvc.png)
 
-##2、Flux
+## 2、Flux
 
 在2013年，Facebook让`React`亮相的同时推出了Flux框架，`React`的初衷实际上是用来替代`jQuery`的，`Flux`实际上就可以用来替代`Backbone.js`，`Ember.js`等一系列`MVC`架构的前端JS框架。
 
@@ -2048,7 +2048,7 @@ Flux的流程：
 
 
 
-##3、Redux
+## 3、Redux
 
 React 只是 DOM 的一个抽象层，并不是 Web 应用的完整解决方案。有两个方面，它没涉及。
 
@@ -2094,9 +2094,9 @@ React 只是 DOM 的一个抽象层，并不是 Web 应用的完整解决方案�
 
 - Single Source of Truth(唯一的数据源)
 - State is read-only(状态是只读的)
-- Changes are made with pure function(数据的改变必须通过纯函数完成)
-
-
+- Changes are made with pure function(数据的改变必须通过纯函数完成)-
+- 纯函数： 如果相同的入参，那么一定是相同的返回值
+- 不能改变入参
 
 ### (1) 自己实现Redux
 
