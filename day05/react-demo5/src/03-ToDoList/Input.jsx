@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
+import { PushDataAction } from './store/actionCreator';
+
 // 映射store里面的dispatch到当前组件的props
 const mapDispatchToProps = dispatch => {
   return {
     pushData(task) {
-      dispatch({
-        type: 'PUSH_DATA',
-        task: task
-      })
+      dispatch(PushDataAction(task))
     }
   }
 }
