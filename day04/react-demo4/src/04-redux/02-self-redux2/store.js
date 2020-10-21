@@ -1,8 +1,8 @@
 // 引入state和changState
-import { defaultState, changeState } from './changeState.js';
+import { defaultState, reducer } from './reducer.js';
 
 // 创建仓库
-const createStore = () => {
+const createStore = (reducer) => {
 
   // 获取数据
   const getState = () => {
@@ -16,11 +16,10 @@ const createStore = () => {
     listeners.push(listener)
   }
 
-
-
+  
   // dispatch,用来触发changeState
   const dispatch = (action) => {
-    changeState(action);
+    reducer(action);
     // renderDom();
     // 发布
     listeners.forEach(listener => listener())
@@ -34,7 +33,7 @@ const createStore = () => {
   }
 }
 
-const store = createStore()
+const store = createStore(reducer)
 
 // 渲染页面
 const renderDom = () => {

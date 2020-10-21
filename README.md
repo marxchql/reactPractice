@@ -2409,7 +2409,7 @@ React 只是 DOM 的一个抽象层，并不是 Web 应用的完整解决方案�
 
 
 
-###(2) 使用Redux框架
+### (2) 使用Redux框架
 
 **Redux的流程：**
 
@@ -2499,7 +2499,7 @@ function reducer(state = defaultState, action) {
 
 
 
-###(3) 容器组件（Smart/Container Components）和展示组件（Dumb/Presentational Components）
+### (3) 容器组件（Smart/Container Components）和展示组件（Dumb/Presentational Components）
 
 |                | 展示组件                   | 容器组件                           |
 | -------------: | :------------------------- | :--------------------------------- |

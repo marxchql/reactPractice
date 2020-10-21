@@ -5,7 +5,7 @@ const defaultState = {
 
 
 // 修改状态
-const changeState = (action) => {
+const reducer = (action) => {
   action = action || {type: ''}
   switch (action.type) {
     case 'decrement':
@@ -20,5 +20,5 @@ const changeState = (action) => {
 
 export {
   defaultState,
-  changeState
+  reducer
 }
