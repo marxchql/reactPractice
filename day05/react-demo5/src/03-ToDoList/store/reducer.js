@@ -3,6 +3,7 @@ const defaultState = {
 }
 
 export default (state = defaultState, action) => {
+  console.log('action:', action)
   action = action || {type: ''}
   switch (action.type) {
     case 'PUSH_DATA':

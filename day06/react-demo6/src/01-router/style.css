@@ -1,0 +1,15 @@
+/* .selected {
+  color: #000;
+  font-size: 30px;
+} */
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.active::before {
+  content: '>'
+}

@@ -56,7 +56,7 @@ class List extends Component {
 
   componentDidMount() {
     // 这里做数据请求
-    this.props.getList()
+    // this.props.getList()
   }
 }
 
