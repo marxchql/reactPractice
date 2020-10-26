@@ -10,26 +10,26 @@ const routes = [
   {
     path: '/home',
     component: Home,
-    // children: [
-    //   {
-    //     path: '/home/movie',
-    //     component: Movie,
-    //     children: [
-    //       {
-    //         path: '/home/movie/hot',
-    //         component: Hot
-    //       }
-    //     ]
-    //   },
-    //   {
-    //     path: '/home/video',
-    //     component: Video
-    //   },
-    //   {
-    //     path: '/home/mine',
-    //     component: Mine
-    //   }
-    // ]
+    children: [
+      {
+        path: '/home/movie',
+        component: Movie,
+        children: [
+          {
+            path: '/home/movie/hot',
+            component: Hot
+          }
+        ]
+      },
+      {
+        path: '/home/video',
+        component: Video
+      },
+      {
+        path: '/home/mine',
+        component: Mine
+      }
+    ]
   },
   {
     path: '/detail/:id',

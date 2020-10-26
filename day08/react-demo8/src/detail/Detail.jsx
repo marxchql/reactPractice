@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 
-class Detail extends Component {
-
-  render() {
-    console.log(this.props)
-    let id = this.props.match.params.id
-    return (
-      <div>detail{id}</div>
-    );
-  }
+const Detail = () => {
+  const params = useParams()
+  // console.log(params)
+  const id = params.id
+  return (
+    <div>detail{id}</div>
+  );
 }
 
 export default Detail;

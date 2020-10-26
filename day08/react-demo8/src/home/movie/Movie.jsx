@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Switch} from 'react-router-dom';
-import RouteWithSubRoutes from '../../components/a'
+import { Route, Link, Switch} from 'react-router-dom';
 
 // import Hot from './hot/Hot'
 
@@ -20,10 +19,9 @@ class Movie extends Component {
           {/* <Route path="/home/movie/hot" component={Hot}></Route> */}
           {
             this.props.routes.map((item, index) => {
-              // return <Route key={index} path={item.path} component={() => {
-              //   return <item.component routes={item.children}></item.component>
-              // }}></Route>
-              return <RouteWithSubRoutes key={index} {...item} />
+              return <Route key={index} path={item.path} component={() => {
+                return <item.component routes={item.children}></item.component>
+              }}></Route>
             })
           }
         </Switch>

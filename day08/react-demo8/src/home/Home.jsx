@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, NavLink } from 'react-router-dom';
-
-import RouteWithSubRoutes from '../components/a'
+import { Route, Switch, NavLink } from 'react-router-dom';
 
 // import Mine from './mine/Mine';
 // import Video from './video/Video';
@@ -12,6 +10,7 @@ import './style.css';
 
 class Home extends Component {
   render() {
+    console.log(this.props)
     return (
       <>
         <Switch>
@@ -26,10 +25,10 @@ class Home extends Component {
           </Route> */}
           {
             this.props.routes.map((item, index) => {
-              // return <Route key={index} path={item.path} component={() => {
-              //   return <item.component {...this.props} routes={item.children}></item.component>
-              // }}></Route>
-              return <RouteWithSubRoutes key={index} {...item} />
+              return <Route key={index} path={item.path} component={() => {
+                return <item.component routes={item.children}></item.component>
+              }}></Route>
+              // return <RouteWithSubRoutes key={index} {...item} />
             })
           }
         </Switch>
