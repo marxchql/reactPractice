@@ -7,10 +7,59 @@ const About = () => <div>About</div>
 const Dashboard = () => <div>Dashboard</div>
 
 class Basic extends Component {
+  state = {
+    a: 1
+  }
+
+  // componentDidMount() {
+  //   // this.setState({
+  //   //   a: this.state.a + 1
+  //   // })
+  //   // this.setState({
+  //   //   a: this.state.a + 1
+  //   // })
+  //   // this.setState({
+  //   //   a: this.state.a + 1
+  //   // })
+  //   // this.setState({
+  //   //   a: this.state.a + 1
+  //   // })
+  //   this.setState((prevState) => {
+  //     return {
+  //       a: prevState.a + 1
+  //     }
+  //   })
+  //   this.setState((prevState) => {
+  //     return {
+  //       a: prevState.a + 1
+  //     }
+  //   })
+  //   this.setState((prevState) => {
+  //     return {
+  //       a: prevState.a + 1
+  //     }
+  //   })
+  //   this.setState((prevState) => {
+  //     return {
+  //       a: prevState.a + 1
+  //     }
+  //   })
+  // }
+  handleChange = () => {
+    return (e) => {
+      let value = e.target.value
+      let str = value[value.length - 1]
+      value = value + str
+      this.setState({
+        a: value
+      })
+    }
+  }
   render() {
     return (
       // 如果要使用路由，所有的内容都要放在BrowserRouter组件中
       <Router>
+        <input type="text" value={this.state.a} onChange={this.handleChange()} />
         <ul>
           <li><Link to="/">home</Link></li>
           <li><Link to="/about">about</Link></li>
