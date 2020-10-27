@@ -3107,7 +3107,7 @@ const map = Map({ a: 1, b: 2, c: 3 });
 const lazySeq = Seq(map);
 const newMap = lazySeq
   .flip()
-  .map(key => key.toUpperCase())
+  .map(v => v.toUpperCase())
   .flip();
 
 console.log(newMap)
@@ -3138,7 +3138,7 @@ console.log(aRange)
 
 
 
-##5、在redux中使用immutable.js
+## 5、在redux中使用immutable.js
 
 [redux官网](<https://redux.js.org/recipes/using-immutablejs-with-redux>)推荐使用[redux-immutable](<https://www.npmjs.com/package/redux-immutable>)进行redux和immutable的集成。几个注意点：
 
