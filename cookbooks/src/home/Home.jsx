@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { TabBar } from 'antd-mobile';
 
+import Cooks from 'home/cooks/Cooks';
+
 import cooksImg from 'img/img11.jpg'
 import cooksActiveImg from 'img/img1.jpg'
 import shareImg from 'img/img22.jpg'
@@ -10,6 +12,7 @@ import messageImg from 'img/img33.jpg'
 import messageActiveImg from 'img/im3.jpg'
 import mineImg from 'img/img44.jpg'
 import mineActiveImg from 'img/img4.jpg'
+
 
 class Home extends Component {
   state = {
@@ -50,7 +53,7 @@ class Home extends Component {
               }}
               data-seed="logId"
             >
-              <div>cooks</div>
+              <Cooks></Cooks>
             </TabBar.Item>
             <TabBar.Item
               icon={<div style={{
