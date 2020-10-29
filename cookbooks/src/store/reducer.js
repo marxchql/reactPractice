@@ -1,22 +1,11 @@
-const defaultState = {
-  bannerList: [],
-  bannerPrefix: ''
-}
+//combineReducers 用于合并reducer
+import { combineReducers } from 'redux';
 
-const reducer = (state = defaultState, action) => {
-  action = action || {type: ''}
-  switch (action.type) {
-    case 'GETBANNERLIST':
-      // console.log(action.bannerList)
-      // console.log(action.bannerPrefix)
-      return {
-        ...state,
-        bannerList: action.bannerList,
-        bannerPrefix: action.bannerPrefix
-      }
-    default:
-      return state
-  }
-}
+import { reducer as cooksReducer } from 'home/cooks'
+
+
+const reducer = combineReducers({
+  cooksReducer,
+})
 
 export default reducer;

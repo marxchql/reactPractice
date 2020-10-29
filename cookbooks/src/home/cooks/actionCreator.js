@@ -1,8 +1,10 @@
 import axios from 'axios';
+import {COOKS_GET_BANNER_DATA} from './actionTypes';
 
 const getBannerList = data => {
+  console.log(data)
   return {
-    type: 'GETBANNERLIST',
+    type: COOKS_GET_BANNER_DATA,
     bannerList: data.result,
     bannerPrefix: data.prefix
   }

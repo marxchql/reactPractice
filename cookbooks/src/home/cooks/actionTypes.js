@@ -1,0 +1,1 @@
+export const COOKS_GET_BANNER_DATA = 'home/cooks/getbannerdata';

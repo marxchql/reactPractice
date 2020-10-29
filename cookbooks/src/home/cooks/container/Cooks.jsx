@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 
+import CooksUi from '../ui/CooksUi';
+
 // import axios from 'axios';
 import { connect } from 'react-redux';
-import {getBannerListAsync} from '../../store/actionCreator';
-
-import Swiper from './Swiper';
-import Menu from './Menu';
-
-import {Container} from './StyledComponent';
+import {getBannerListAsync} from '../actionCreator';
 
 const mapStateToProps = state => {
-  // console.log('state', state)
+  console.log('state', state)
   return {
-    bannerList: state.bannerList,
-    bannerPrefix: state.bannerPrefix
+    bannerList: state.cooksReducer.bannerList,
+    bannerPrefix: state.cooksReducer.bannerPrefix
   }
 }
 
@@ -25,6 +22,8 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
+
+@connect(mapStateToProps, mapDispatchToProps)
 class Cooks extends Component {
   // state = {
   //   bannerList: [],
@@ -35,11 +34,12 @@ class Cooks extends Component {
     // console.log(this.props.bannerPrefix)
     // console.log(this.props.bannerList)
     return (
-      <Container>
-        <header>菜谱大全</header>
-        <Swiper bannerPrefix={this.props.bannerPrefix} bannerList={this.props.bannerList}></Swiper>
-        <Menu></Menu>
-      </Container>
+      <CooksUi bannerList={this.props.bannerList} bannerPrefix={this.props.bannerPrefix}></CooksUi>
+      // <Container>
+      //   <header>菜谱大全</header>
+      //   <Swiper bannerPrefix={this.props.bannerPrefix} bannerList={this.props.bannerList}></Swiper>
+      //   <Menu></Menu>
+      // </Container>
     );
   }
 
@@ -59,4 +59,8 @@ class Cooks extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cooks);
+// export default connect(mapStateToProps, mapDispatchToProps)(Cooks);
+export default Cooks;
+
+
+// export default Hoc(Cooks);

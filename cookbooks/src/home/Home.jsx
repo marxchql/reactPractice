@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { TabBar } from 'antd-mobile';
 
-import Cooks from 'home/cooks/Cooks';
+import {Cooks} from 'home/cooks';
 
 import cooksImg from 'img/img11.jpg'
 import cooksActiveImg from 'img/img1.jpg'
