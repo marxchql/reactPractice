@@ -1,5 +1,15 @@
-import axios from 'axios';
-import {COOKS_GET_BANNER_DATA} from './actionTypes';
+// import axios from 'axios';
+import {
+  COOKS_GET_BANNER_DATA,
+  COOKS_GET_BOOKS_DATA,
+  COOKS_GET_RECOMMEND_DATA
+} from './actionTypes';
+
+import {
+  getBanner,
+  getBooks,
+  getRecommend
+} from 'utils/api';
 
 const getBannerList = data => {
   console.log(data)
@@ -11,17 +21,51 @@ const getBannerList = data => {
 }
 
 const getBannerListAsync = () => {
-  return (dispatch) => {
-    axios.get('http://10.31.160.92:5000/api/cooks/banner').then(res => {
-      let {data} = res;
-      if (data.status === 0) {
-        dispatch(getBannerList(data))
-      }
-    })
+  return async (dispatch) => {
+    const res = await getBanner();
+    if (res.status === 0) {
+      dispatch(getBannerList(res))
+    }
+  } 
+}
+
+
+const getBooksList = data => {
+  return {
+    type: COOKS_GET_BOOKS_DATA,
+    list: data.result,
+    prefix: data.prefix
+  }
+}
+
+const getBooksListAsync = () => {
+  return async (dispatch) => {
+    const res = await getBooks();
+    if (res.status === 0) {
+      dispatch(getBooksList(res))
+    }
+  } 
+}
+
+const getRecommendList = data => {
+  return {
+    type: COOKS_GET_RECOMMEND_DATA,
+    list: data.result,
+    prefix: data.prefix
+  }
+}
+
+const getRecommendListAsync = () => {
+  return async (dispatch) => {
+    const res = await getRecommend();
+    if (res.status === 0) {
+      dispatch(getRecommendList(res))
+    }
   } 
 }
 
 export {
-  getBannerList,
-  getBannerListAsync
+  getBannerListAsync,
+  getBooksListAsync,
+  getRecommendListAsync
 }

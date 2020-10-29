@@ -26,7 +26,8 @@ module.exports = override(
     "@": path.resolve(__dirname, 'src/'),
     "home": path.resolve(__dirname, 'src/home/'),
     "assets": path.resolve(__dirname, 'src/assets/'),
-    "img": path.resolve(__dirname, 'src/assets/images/')
+    "img": path.resolve(__dirname, 'src/assets/images/'),
+    "utils": path.resolve(__dirname, 'src/utils/')
   }),
   // 添加修饰器
   addDecoratorsLegacy()

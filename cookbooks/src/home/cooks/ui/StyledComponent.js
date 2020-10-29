@@ -19,6 +19,9 @@ const SwiperWrap = styled.div `
   margin-top: 20px;
   border-radius: 20px;
   overflow: hidden;
+  .slider-list {
+    height: 180px !important;
+  }
   img {
     border-radius: 20px;
   }
@@ -34,8 +37,50 @@ const MenuWrap = styled.div `
   }
 `
 
+
+const BooksWrap = styled.div `
+  .bgccc {
+    width: 100%;
+    height: 15px;
+    background: #efefef;
+  }
+  .books {
+    width: 100%;
+    padding: 0 15px;
+  }
+  .am-grid-item:last-child {
+    .am-grid-item-content {
+      float: right;
+    }
+  }
+  .shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(255,255,255,0));
+  }
+`
+
+const RecommendWrap = styled.div `
+  nav {
+    padding-left: 15px;
+    display: flex;
+    li {
+      width: 70px;
+      height: 30px;
+      list-style: none;
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+`
+
 export {
   Container,
   SwiperWrap,
-  MenuWrap
+  MenuWrap,
+  BooksWrap,
+  RecommendWrap
 }
