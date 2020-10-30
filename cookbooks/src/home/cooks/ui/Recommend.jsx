@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import {RecommendWrap} from './StyledComponent';
 
 import memoize from 'memoize-one';
 
+@withRouter
 class Recommend extends Component {
   state = {
     type: 1
@@ -23,6 +25,18 @@ class Recommend extends Component {
     }
   }
 
+  goToDetail = (id, title) => {
+    // console.log(this.props)
+    // const {history} = this.props
+    // history.push('/detail')
+    return () => {
+      const {history} = this.props
+      history.push('/detail/' + id, {
+        title: title
+      })
+    }
+  }
+
 
   render() {
     const filteredList = this.filter(this.props.recommendList, this.state.type);
@@ -38,7 +52,10 @@ class Recommend extends Component {
           {
             filteredList.map((item) => {
               return (
-                <li key={item.id}>{item.title}</li>
+                <li 
+                  key={item.id}
+                  onClick={this.goToDetail(item.id, item.title)}
+                >{item.title}</li>
               )
             })
           }

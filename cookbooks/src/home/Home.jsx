@@ -4,6 +4,7 @@ import { TabBar } from 'antd-mobile';
 
 import {Cooks} from 'home/cooks';
 import {Messages} from 'home/message'
+import Mine from 'home/mine/Mine'
 
 import cooksImg from 'img/img11.jpg'
 import cooksActiveImg from 'img/img1.jpg'
@@ -14,10 +15,27 @@ import messageActiveImg from 'img/im3.jpg'
 import mineImg from 'img/img44.jpg'
 import mineActiveImg from 'img/img4.jpg'
 
+import { connect } from 'react-redux';
+import { changeSelected } from './actionCreator';
 
+const mapStateToProps = state => {
+  return {
+    selectedTab: state.homeReducer.selectedTab
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    change(data) {
+      dispatch(changeSelected(data))
+    }
+  }
+}
+
+@connect(mapStateToProps, mapDispatchToProps)
 class Home extends Component {
   state = {
-    selectedTab: 'message',
+    // selectedTab: 'cooks',
     hidden: false,
     fullScreen: true
   }
@@ -46,11 +64,13 @@ class Home extends Component {
                 background: `url(${cooksActiveImg}) center center /  28px 28px no-repeat` }}
               />
               }
-              selected={this.state.selectedTab === 'cooks'}
+              selected={this.props.selectedTab === 'cooks'}
               onPress={() => {
-                this.setState({
-                  selectedTab: 'cooks',
-                });
+                // this.setState({
+                //   selectedTab: 'cooks',
+                // });
+                this.props.change('cooks')
+                sessionStorage.setItem('tabs', 'cooks')
               }}
               data-seed="logId"
             >
@@ -71,11 +91,13 @@ class Home extends Component {
               }
               title=""
               key="share"
-              selected={this.state.selectedTab === 'share'}
+              selected={this.props.selectedTab === 'share'}
               onPress={() => {
-                this.setState({
-                  selectedTab: 'share',
-                });
+                // this.setState({
+                //   selectedTab: 'share',
+                // });
+                this.props.change('share')
+                sessionStorage.setItem('tabs', 'share')
               }}
               data-seed="logId1"
             >
@@ -96,11 +118,13 @@ class Home extends Component {
               }
               title=""
               key="message"
-              selected={this.state.selectedTab === 'message'}
+              selected={this.props.selectedTab === 'message'}
               onPress={() => {
-                this.setState({
-                  selectedTab: 'message',
-                });
+                // this.setState({
+                //   selectedTab: 'message',
+                // });
+                this.props.change('message')
+                sessionStorage.setItem('tabs', 'message')
               }}
             >
               <Messages></Messages>
@@ -119,14 +143,16 @@ class Home extends Component {
               />}
               title=""
               key="mine"
-              selected={this.state.selectedTab === 'mine'}
+              selected={this.props.selectedTab === 'mine'}
               onPress={() => {
-                this.setState({
-                  selectedTab: 'mine',
-                });
+                // this.setState({
+                //   selectedTab: 'mine',
+                // });
+                this.props.change('mine')
+                sessionStorage.setItem('tabs', 'mine')
               }}
             >
-              <div>mine</div>
+              <Mine></Mine>
             </TabBar.Item>
           </TabBar>
         </div>
