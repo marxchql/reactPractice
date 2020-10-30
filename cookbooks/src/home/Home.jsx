@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { TabBar } from 'antd-mobile';
 
 import {Cooks} from 'home/cooks';
+import {Messages} from 'home/message'
 
 import cooksImg from 'img/img11.jpg'
 import cooksActiveImg from 'img/img1.jpg'
@@ -16,7 +17,7 @@ import mineActiveImg from 'img/img4.jpg'
 
 class Home extends Component {
   state = {
-    selectedTab: 'cooks',
+    selectedTab: 'message',
     hidden: false,
     fullScreen: true
   }
@@ -102,7 +103,7 @@ class Home extends Component {
                 });
               }}
             >
-              <div>message</div>
+              <Messages></Messages>
             </TabBar.Item>
             <TabBar.Item
               icon={<div style={{

@@ -1,0 +1,1 @@
+export const MESSAGE_GET_LIST = 'home/message/getlist';

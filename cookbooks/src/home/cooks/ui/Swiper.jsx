@@ -11,16 +11,20 @@ class Swiper extends Component {
     // console.log(this.props)
     return (
       <SwiperWrap>
-        <Carousel
-          autoplay={true}
-          infinite
-        >
-          {
-            this.props.bannerList.map((item) => {
-              return <img src={this.props.bannerPrefix + item.url} alt="" key={item.id}/>
-            })
-          }
-        </Carousel>
+        {
+          this.props.bannerList.length ? (
+            <Carousel
+              autoplay={true}
+              infinite
+            >
+              {
+                this.props.bannerList.map((item) => {
+                  return <img src={this.props.bannerPrefix + item.url} alt="" key={item.id}/>
+                })
+              }
+            </Carousel>
+          ) : null
+        }
       </SwiperWrap>
     )
   }
