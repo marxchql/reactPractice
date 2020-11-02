@@ -18,7 +18,6 @@ import mineActiveImg from 'img/img4.jpg'
 import { useDispatch, useSelector } from 'react-redux';
 import { changeSelected } from './actionCreator';
 
-
 const Home = (props) => {
   // 用于获取redux的数据
   // const store = useStore()

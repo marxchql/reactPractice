@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Grid } from 'antd-mobile';
 
 import {MenuWrap} from './StyledComponent';
@@ -27,25 +27,44 @@ const data1 = [
   }
 ]
 
-class Menu extends Component {
-  render() {
-    return (
-      <MenuWrap>
-        <Grid data={data1}
-          columnNum={4}
-          hasLine={false}
-          renderItem={dataItem => (
+// class Menu extends Component {
+//   render() {
+//     return (
+//       <MenuWrap>
+//         <Grid data={data1}
+//           columnNum={4}
+//           hasLine={false}
+//           renderItem={dataItem => (
+//             <div>
+//               <img src={dataItem.icon} alt="" />
+//               <div>
+//                 <span className="title">{dataItem.title}</span>
+//               </div>
+//             </div>
+//           )}
+//         />
+//       </MenuWrap>
+//     );
+//   }
+// }
+
+const Menu = () => {
+  return (
+    <MenuWrap>
+      <Grid data={data1}
+        columnNum={4}
+        hasLine={false}
+        renderItem={dataItem => (
+          <div>
+            <img src={dataItem.icon} alt="" />
             <div>
-              <img src={dataItem.icon} alt="" />
-              <div>
-                <span className="title">{dataItem.title}</span>
-              </div>
+              <span className="title">{dataItem.title}</span>
             </div>
-          )}
-        />
-      </MenuWrap>
-    );
-  }
+          </div>
+        )}
+      />
+    </MenuWrap>
+  )
 }
 
 export default Menu;

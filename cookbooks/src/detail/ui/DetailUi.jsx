@@ -1,14 +1,16 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom'
+import {useParams, useLocation, useHistory } from 'react-router-dom'
 
 import { NavBar, Icon } from 'antd-mobile';
 
-const DetailUi = withRouter((props) => {
-  // const {id} = props.match.params
-  // const {title} = props.location.state
-  const id = props.match ? props.match.params.id : '0';
-  const title = props.location.state ? props.location.state.title : '详情页';
-  const {history} = props
+const DetailUi = (props) => {
+  // let match = useRouteMatch("/detail/:id");
+  let params = useParams();
+  let location = useLocation();
+  let history = useHistory();
+
+  const id = params ? params.id : '0';
+  const title = location.state ? location.state.title : '详情页';
 
   function goBack() {
     history.goBack()
@@ -32,6 +34,6 @@ const DetailUi = withRouter((props) => {
       <div>{id}</div>
     </div>
   );
-})
+}
 
 export default DetailUi;

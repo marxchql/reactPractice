@@ -1,67 +1,61 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom';
+import memoize from 'memoize-one';
 
 import {RecommendWrap} from './StyledComponent';
 
-import memoize from 'memoize-one';
+const Recommend = (props) => {
+  let history = useHistory();
 
-@withRouter
-class Recommend extends Component {
-  state = {
+  const [data, setData] = useState({
     type: 1
-  }
+  })
 
-  filter = memoize(
-    (list, type) => {
-      return list.filter(item => item.type === type)
-    }
-  );
-
-  handleClick = (num) => {
+  const handleClick = (num) => {
     return () => {
-      this.setState({
+      setData({
         type: num
       })
     }
   }
 
-  goToDetail = (id, title) => {
-    // console.log(this.props)
-    // const {history} = this.props
-    // history.push('/detail')
+  const goToDetail = (id, title) => {
     return () => {
-      const {history} = this.props
       history.push('/detail/' + id, {
         title: title
       })
     }
   }
 
+  const filter = memoize(
+    (list, type) => {
+      return list.filter(item => item.type === type)
+    }
+  );
 
-  render() {
-    const filteredList = this.filter(this.props.recommendList, this.state.type);
-    return (
-      <RecommendWrap>
-        <nav>
-          <li onClick={this.handleClick(1)}>推荐</li>
-          <li onClick={this.handleClick(2)}>日常</li>
-          <li onClick={this.handleClick(3)}>最热</li>
-        </nav>
-        <ul>
-          {
-            filteredList.map((item) => {
-              return (
-                <li 
-                  key={item.id}
-                  onClick={this.goToDetail(item.id, item.title)}
-                >{item.title}</li>
-              )
-            })
-          }
-        </ul>
-      </RecommendWrap>
-    );
-  }
+  const filteredList = filter(props.recommendList, data.type);
+
+  return (
+    <RecommendWrap>
+      <nav>
+        <li onClick={handleClick(1)}>推荐</li>
+        <li onClick={handleClick(2)}>日常</li>
+        <li onClick={handleClick(3)}>最热</li>
+      </nav>
+      <ul>
+        {
+          filteredList.map((item) => {
+            return (
+              <li 
+                key={item.id}
+                onClick={goToDetail(item.id, item.title)}
+              >{item.title}</li>
+            )
+          })
+        }
+      </ul>
+    </RecommendWrap>
+  )
 }
 
 export default Recommend;
