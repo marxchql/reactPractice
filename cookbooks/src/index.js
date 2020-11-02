@@ -9,6 +9,7 @@ import store from './store/index';
 import App from './App';
 
 import 'lib-flexible';
+import 'animate.css';
 
 ReactDOM.render(
   <Router>

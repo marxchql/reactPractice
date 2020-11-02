@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
+import Animate from '../../hoc/withAnimate';
+
 import DetailUi from '../ui/DetailUi';
 
+@Animate
 class Detail extends Component {
-  state = {  }
   render() {
     return (
       <DetailUi></DetailUi>
