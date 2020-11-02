@@ -1,7 +1,5 @@
 import {
-  COOKS_GET_BANNER_DATA,
-  COOKS_GET_BOOKS_DATA,
-  COOKS_GET_RECOMMEND_DATA
+  COOKS_GET_ALL
 } from './actionTypes';
 
 const defaultState = {
@@ -16,23 +14,11 @@ const defaultState = {
 const reducer = (state = defaultState, action) => {
   action = action || {type: ''}
   switch (action.type) {
-    case COOKS_GET_BANNER_DATA:
+    case COOKS_GET_ALL:
+      Reflect.deleteProperty(action, 'type')
       return {
         ...state,
-        bannerList: action.bannerList,
-        bannerPrefix: action.bannerPrefix
-      }
-    case COOKS_GET_BOOKS_DATA:
-      return {
-        ...state,
-        booksList: action.list,
-        booksPrefix: action.prefix
-      }
-    case COOKS_GET_RECOMMEND_DATA:
-      return {
-        ...state,
-        recommendList: action.list,
-        recommendPrefix: action.prefix
+        ...action
       }
     default:
       return state

@@ -40,7 +40,6 @@ class Recommend extends Component {
 
   render() {
     const filteredList = this.filter(this.props.recommendList, this.state.type);
-    console.log(filteredList)
     return (
       <RecommendWrap>
         <nav>
