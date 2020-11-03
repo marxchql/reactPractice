@@ -8,7 +8,6 @@ import Recommend from './Recommend'
 import {Container} from './StyledComponent';
 
 const CooksUi = (props) => {
-  // console.log(props)
   return (
     <Container>
       <header>菜谱大全</header>

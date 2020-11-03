@@ -8,7 +8,7 @@ import { getMessageListAsync } from '../actionCreator';
 
 @connect(state => {
   return {
-    messageList: state.messageReducer.messageList
+    messageList: state.getIn(['messageReducer', 'messageList'])
   }
 }, dispatch => {
   return {

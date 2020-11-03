@@ -1,39 +1,14 @@
-import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
-import memoize from 'memoize-one';
+import React from 'react';
 
 import {RecommendWrap} from './StyledComponent';
 
+import useGetState from './useGetState';
+import useGoToDetail from './useGoToDetail';
+
 const Recommend = (props) => {
-  let history = useHistory();
-
-  const [data, setData] = useState({
-    type: 1
-  })
-
-  const handleClick = (num) => {
-    return () => {
-      setData({
-        type: num
-      })
-    }
-  }
-
-  const goToDetail = (id, title) => {
-    return () => {
-      history.push('/detail/' + id, {
-        title: title
-      })
-    }
-  }
-
-  const filter = memoize(
-    (list, type) => {
-      return list.filter(item => item.type === type)
-    }
-  );
-
-  const filteredList = filter(props.recommendList, data.type);
+  const { handleClick, filteredList } = useGetState(props)
+  const { goToDetail } = useGoToDetail()
+  
 
   return (
     <RecommendWrap>

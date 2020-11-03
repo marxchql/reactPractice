@@ -1,5 +1,8 @@
 //combineReducers 用于合并reducer
-import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux';
+import {
+  combineReducers
+} from 'redux-immutable';
 
 import { reducer as cooksReducer } from 'home/cooks';
 import { reducer as messageReducer } from 'home/message';

@@ -45,7 +45,7 @@ const Cooks = (props) => {
   }, [dispatch])
 
   return (
-    <CooksUi {...store.cooksReducer}></CooksUi>
+    <CooksUi {...store.getIn(["cooksReducer"]).toJS()}></CooksUi>
   );
 }
 

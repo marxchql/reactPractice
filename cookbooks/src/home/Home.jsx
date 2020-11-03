@@ -25,8 +25,10 @@ const Home = (props) => {
   const dispatch = useDispatch()
 
   // 也是用于获取数据
-  const store = useSelector(state => state)
   // const store = useStore().getState() 相当于 const store = useSelector(state => state)
+  const store = useSelector(state => {
+    return state
+  })
 
   const [ tabs, setTabs ] = useState({
     hidden: false,
@@ -58,7 +60,8 @@ const Home = (props) => {
             />
             }
             // selected={homeState.selectedTab === 'cooks'}
-            selected={store.homeReducer.selectedTab === 'cooks'}
+            // selected={store.homeReducer.selectedTab === 'cooks'}
+            selected={store.getIn(['homeReducer', 'selectedTab']) === 'cooks'}
             onPress={() => {
               setTabs({
                 selectedTab: 'cooks'
@@ -86,7 +89,7 @@ const Home = (props) => {
             title=""
             key="share"
             // selected={homeState.selectedTab === 'share'}
-            selected={store.homeReducer.selectedTab === 'share'}
+            selected={store.getIn(['homeReducer', 'selectedTab']) === 'share'}
             onPress={() => {
               // props.change('share')
               setTabs({
@@ -115,7 +118,7 @@ const Home = (props) => {
             title=""
             key="message"
             // selected={homeState.selectedTab === 'message'}
-            selected={store.homeReducer.selectedTab === 'message'}
+            selected={store.getIn(['homeReducer', 'selectedTab']) === 'message'}
             onPress={() => {
               // props.change('message')
               setTabs({
@@ -142,7 +145,7 @@ const Home = (props) => {
             title=""
             key="mine"
             // selected={homeState.selectedTab === 'mine'}
-            selected={store.homeReducer.selectedTab === 'mine'}
+            selected={store.getIn(['homeReducer', 'selectedTab']) === 'mine'}
             onPress={() => {
               // props.change('mine')
               setTabs({

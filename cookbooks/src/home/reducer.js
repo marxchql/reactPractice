@@ -2,19 +2,17 @@ import {
   CHANGE_SELECTED_TAB
 } from './actionTypes';
 
-const defaultState = {
-  // selectedTab: 'cooks',
+import {Map} from 'immutable';
+
+const defaultState = Map({
   selectedTab: sessionStorage.getItem('tabs') || 'cooks'
-}
+})
 
 const reducer = (state = defaultState, action) => {
   action = action || {type: ''}
   switch (action.type) {
     case CHANGE_SELECTED_TAB:
-      return {
-        ...state,
-        selectedTab: action.selectedTab
-      }
+      return state.set('selectedTab', action.selectedTab)
     default:
       return state
   }
