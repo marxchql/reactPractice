@@ -2,7 +2,11 @@ import React from 'react';
 
 const Content = () => {
   return (
-    <div>content</div>
+    <div className="home-content">
+      <div className="welcome">
+        欢迎来到2006后台管理系统
+      </div>
+    </div>
   );
 }
 

@@ -1,22 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Typography } from 'antd';
+import {getWea} from '../../utils/api';
 const { Text, Link } = Typography;
+
 
 const Header = () => {
   const [data, setData] = useState({
     username: '强子',
     pageTitle: '首页',
-    time: new Date().toLocaleString()
+    time: new Date().toLocaleString(),
+    city: '',
+    wea: ''
   })
 
   useEffect(() => {
-    setTimeout(() => {
-      setData({
-        ...data,
-        time: new Date().toLocaleString()
+    setInterval(() => {
+      setData(data => {
+        return {
+          ...data,
+          time: new Date().toLocaleString()
+        }
       })
     }, 1000);
-  }, [data])
+  }, [])
+
+  useEffect(() => {
+    async function getAsync() {
+      const res = await getWea()
+        setData(data => {
+          return {
+            ...data,
+            city: res.city,
+            wea: res.wea
+          }}
+        )
+    }
+    getAsync()
+  }, [])
 
   return (
     <header>
@@ -28,7 +48,7 @@ const Header = () => {
       </Row>
       <Row className="header-bottom">
         <Col span={5} className="breadcrumb">{data.pageTitle}</Col>
-        <Col span={19} className="time">{data.time}</Col>
+        <Col span={19} className="time">{data.city} - {data.wea} - {data.time}</Col>
       </Row>
     </header>
   );
