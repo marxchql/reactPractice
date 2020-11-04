@@ -1,13 +1,21 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Menu } from 'antd';
 import menuList from '@/resource/menuConfig';
+import { useHistory } from 'react-router-dom';
 
 const { SubMenu } = Menu;
 
 const NavMenu = () => {
+  const history = useHistory();
+  const dispatch = useDispatch()
 
   function handleClick(e) {
-    console.log('click', e);
+    dispatch({
+      type: 'changeTitle',
+      title: e.item.props.title
+    })
+    history.push(e.key)
   }
 
   return (
@@ -22,13 +30,13 @@ const NavMenu = () => {
                 <SubMenu key={item.key} title={item.title}>
                   {
                     item.children.map(value => {
-                      return <Menu.Item key={value.key}>{value.title}</Menu.Item>
+                      return <Menu.Item key={value.key} title={value.title}>{value.title}</Menu.Item>
                     })
                   }
                 </SubMenu>
               )
             } else {
-              return <Menu.Item key={item.key}>{item.title}</Menu.Item>
+              return <Menu.Item key={item.key} title={item.title}>{item.title}</Menu.Item>
             }
           })
         }

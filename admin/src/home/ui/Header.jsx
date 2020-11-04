@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Row, Col, Typography } from 'antd';
 import {getWea} from '../../utils/api';
 const { Text, Link } = Typography;
 
 
 const Header = () => {
+  const pageTitle = useSelector(state => state.pageTitle)
+
   const [data, setData] = useState({
     username: '强子',
-    pageTitle: '首页',
+    // pageTitle: '首页',
     time: new Date().toLocaleString(),
     city: '',
     wea: ''
@@ -47,7 +50,7 @@ const Header = () => {
         </Col>
       </Row>
       <Row className="header-bottom">
-        <Col span={5} className="breadcrumb">{data.pageTitle}</Col>
+        <Col span={5} className="breadcrumb">{pageTitle}</Col>
         <Col span={19} className="time">{data.city} - {data.wea} - {data.time}</Col>
       </Row>
     </header>

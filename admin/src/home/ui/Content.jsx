@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Content = () => {
+const Content = (props) => {
   return (
     <div className="home-content">
-      <div className="welcome">
-        欢迎来到2006后台管理系统
-      </div>
+      {props.children}
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import HomeUi from '../ui/HomeUi.jsx';
 
-const Home = () => {
+const Home = (props) => {
   return (
-    <HomeUi></HomeUi>
+    <HomeUi children={props.children}></HomeUi>
   );
 }
 

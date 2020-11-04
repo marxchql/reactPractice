@@ -7,7 +7,7 @@ import NavMenu from './NavMenu.jsx';
 
 import "./index.less";
 
-const HomeUi = () => {
+const HomeUi = (props) => {
   return (
     <div className="home-wrap">
       <Row>
@@ -16,7 +16,7 @@ const HomeUi = () => {
         </Col>
         <Col span={20}>
           <Header></Header>
-          <Content></Content>
+          <Content children={props.children}></Content>
           <Footer></Footer>
         </Col>
       </Row>
