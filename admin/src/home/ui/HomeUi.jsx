@@ -14,7 +14,7 @@ const HomeUi = (props) => {
         <Col span={4}>
           <NavMenu></NavMenu>
         </Col>
-        <Col span={20}>
+        <Col span={20} style={{height: '100vh', overflow: 'auto'}}>
           <Header></Header>
           <Content children={props.children}></Content>
           <Footer></Footer>

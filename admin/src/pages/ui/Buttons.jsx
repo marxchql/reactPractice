@@ -44,6 +44,26 @@ const Buttons = () => {
           <Button type="primary" onClick={handleChange}>close</Button>
         </Space>
       </Card>
+
+      <Card title="基础按钮">
+        <Space>
+          <Button type="primary" shape="round">Primary Button</Button>
+          <Button>Default Button</Button>
+          <Button type="dashed">Dashed Button</Button>
+          <Button type="primary" danger>Primary</Button>
+          <Button type="primary" disabled>Primary Button</Button>
+        </Space>
+      </Card>
+
+      <Card title="基础按钮">
+        <Space>
+          <Button type="primary" shape="round">Primary Button</Button>
+          <Button>Default Button</Button>
+          <Button type="dashed">Dashed Button</Button>
+          <Button type="primary" danger>Primary</Button>
+          <Button type="primary" disabled>Primary Button</Button>
+        </Space>
+      </Card>
     </Space>
   );
 }
