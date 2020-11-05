@@ -7,3 +7,7 @@ export const getWea = (params) => http.get(`https://v0.yiketianqi.com/api?versio
 // 照片墙
 export const getPicList = (params) => http.get('/pics/list', params)
 
+
+// 表格
+export const getTableList = (params) => http.get('/tables/basic/list', params)
+
