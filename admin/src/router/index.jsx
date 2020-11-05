@@ -12,6 +12,9 @@ import Modals from '@/pages/ui/Modals.jsx';
 import Loading from '@/pages/ui/Loading.jsx';
 import Notification from '@/pages/ui/Notification.jsx';
 import Tabs from '@/pages/ui/Tabs.jsx';
+import Gallery from '@/pages/ui/Gallery.jsx';
+import Login from '@/pages/form/Login.jsx';
+import Register from '@/pages/form/Register.jsx';
 
 const index = () => {
   return (
@@ -28,6 +31,9 @@ const index = () => {
               <Route path="/admin/ui/loadings" component={() => <Loading></Loading>}></Route>
               <Route path="/admin/ui/notification" component={() => <Notification></Notification>}></Route>
               <Route path="/admin/ui/tabs" component={() => <Tabs></Tabs>}></Route>
+              <Route path="/admin/ui/gallery" component={() => <Gallery></Gallery>}></Route>
+              <Route path="/admin/form/login" component={() => <Login></Login>}></Route>
+              <Route path="/admin/form/reg" component={() => <Register></Register>}></Route>
             </Switch>
           </Home>}></Route>
           <Route path="*" component={() => <NotFound></NotFound>}></Route>

@@ -3,7 +3,7 @@ import qs from 'qs';
 
 // 创建axios实例，全局的配置
 const instance = axios.create({
-  baseURL: 'http://www.rootbk.cn:5000/api',
+  baseURL: 'http://www.pudge.wang:3000/api',
   timeout: 10000
 });
 
