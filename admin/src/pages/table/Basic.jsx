@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {Card, Space, Table, Modal} from 'antd';
-import { getTableList } from '../../utils/api';
+import React, {useState, useEffect, useCallback} from 'react';
+import {Card, Space, Table, Modal, Button} from 'antd';
+import { getTableList, deleteTableList } from '../../utils/api';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 const dataSource = [
   {
@@ -72,27 +73,69 @@ const Basic = () => {
         }
       }
     ],
-    keys: []
+    keys: [],
+    keys2: [],
+    names: [],
+    pagination: {}
   });
 
-  useEffect(() => {
-    async function getList() {
-      const res = await getTableList({page: 1})
-      if (res.status === 0) {
-        const list = res.result
-        list.forEach((item) => {
-          return item.key = item._id
-        })
-        setData((data) => {
-          return {
-            ...data,
-            dataSource2: list
+  const getList = useCallback(async(page = 1) => {
+    const res = await getTableList({page: page})
+    if (res.status === 0) {
+      const list = res.result
+      const total = res.total
+      list.forEach((item) => {
+        return item.key = item._id
+      })
+
+      setData((data) => {
+        return {
+          ...data,
+          dataSource2: list,
+          pagination: {
+            total: total,
+            showTotal: (total) => `总共 ${total} 条`,
+            showQuickJumper: true,
+            onChange(page, pageSize) {
+              getList(page)
+            }
           }
-        })
-      }
+        }
+      })
     }
-    getList()
   }, [])
+
+  useEffect(() => {
+    getList()
+  }, [getList])
+
+  const deleteConfirm = () => {
+    Modal.confirm({
+      title: '你确定要删除这些信息吗',
+      icon: <ExclamationCircleOutlined />,
+      content: data.names.join(),
+      okText: 'Yes',
+      okType: 'danger',
+      cancelText: 'No',
+      onOk() {
+        // console.log('OK');
+        deleteList()
+      },
+      onCancel() {
+        console.log('Cancel');
+      },
+    });
+  }
+
+  function deleteList() {
+    let arr = []
+    data.keys2.forEach((item) => {
+      arr.push(deleteTableList({id:item}))
+    })
+    Promise.all(arr).then(() => {
+      getList()
+    })
+  }
 
   return (
     <Space direction="vertical" style={{width: '100%'}}>
@@ -146,6 +189,45 @@ const Basic = () => {
               }
             };
           }}
+        />
+      </Card>
+
+
+      <Card title="多选删除">
+        <Button onClick={deleteConfirm}>删除</Button>
+        <Table 
+          bordered
+          dataSource={data.dataSource2} 
+          columns={data.columns2} 
+          pagination={false}
+          rowSelection={{
+            type: 'checkbox',
+            selectedRowKeys: data.keys2,
+            onChange: function(selectedRowKeys, selectedRows) {
+              // console.log(selectedRowKeys, selectedRows)
+              const newArr = []
+              selectedRows.forEach(item => {
+                newArr.push(item.userName)
+              })
+              setData((data) => {
+                return {
+                  ...data,
+                  keys2: selectedRowKeys,
+                  names: newArr
+                }
+              })
+            }
+          }}
+        />
+      </Card>
+
+
+      <Card title="分页">
+        <Table 
+          bordered
+          dataSource={data.dataSource2} 
+          columns={data.columns2} 
+          pagination={data.pagination}
         />
       </Card>
     </Space>

@@ -16,6 +16,7 @@ import Gallery from '@/pages/ui/Gallery.jsx';
 import Login from '@/pages/form/Login.jsx';
 import Register from '@/pages/form/Register.jsx';
 import Basic from '@/pages/table/Basic.jsx';
+import High from '@/pages/table/High.jsx';
 
 const index = () => {
   return (
@@ -36,6 +37,7 @@ const index = () => {
               <Route path="/admin/form/login" component={() => <Login></Login>}></Route>
               <Route path="/admin/form/reg" component={() => <Register></Register>}></Route>
               <Route path="/admin/table/basic" component={() => <Basic></Basic>}></Route>
+              <Route path="/admin/table/high" component={() => <High></High>}></Route>
             </Switch>
           </Home>}></Route>
           <Route path="*" component={() => <NotFound></NotFound>}></Route>
