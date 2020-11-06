@@ -17,3 +17,12 @@ export const deleteTableList = (params) => http.post('/tables/basic/delete', par
 
 export const getHighList = (params) => http.get('/hightables/list', params)
 
+// 城市管理
+export const getCitiesList = (params) => http.post('/cities/manage/list', params)
+
+// 城市列表
+export const getCities = (params) => http.get('/cities/list', params)
+
+// 添加接口
+export const addCities = (params) => http.post('/cities/manage/add', params)
+
