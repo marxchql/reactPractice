@@ -26,3 +26,6 @@ export const getCities = (params) => http.get('/cities/list', params)
 // 添加接口
 export const addCities = (params) => http.post('/cities/manage/add', params)
 
+// 订单接口
+export const ordersList = (params) => http.post('/orders/list', params)
+
