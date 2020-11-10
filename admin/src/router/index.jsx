@@ -20,6 +20,7 @@ import High from '@/pages/table/High.jsx';
 import City from '@/pages/citiesManage/Index.jsx';
 import Order from '@/pages/order/Order.jsx';
 import BikeMap from '@/pages/bikeMap/BikeMap.jsx';
+import Charts from '@/pages/charts/Charts.jsx';
 
 const index = () => {
   return (
@@ -44,6 +45,7 @@ const index = () => {
               <Route path="/admin/city" component={() => <City></City>}></Route>
               <Route path="/admin/order" component={() => <Order></Order>}></Route>
               <Route path="/admin/bikeMap" component={() => <BikeMap></BikeMap>}></Route>
+              <Route path="/admin/charts" component={() => <Charts></Charts>}></Route>
             </Switch>
           </Home>}></Route>
           <Route path="*" component={() => <NotFound></NotFound>}></Route>

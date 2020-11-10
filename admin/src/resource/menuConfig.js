@@ -102,20 +102,6 @@ const menuList = [
   {
     title: '图标',
     key: '/admin/charts',
-    children: [
-      {
-        title: '柱形图',
-        key: '/admin/charts/bar'
-      },
-      {
-        title: '饼图',
-        key: '/admin/charts/pie'
-      },
-      {
-        title: '折线图',
-        key: '/admin/charts/line'
-      },
-    ]
   },
   {
     title: '权限设置',
