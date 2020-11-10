@@ -21,6 +21,8 @@ import City from '@/pages/citiesManage/Index.jsx';
 import Order from '@/pages/order/Order.jsx';
 import BikeMap from '@/pages/bikeMap/BikeMap.jsx';
 import Charts from '@/pages/charts/Charts.jsx';
+import Login2 from '@/login/Login.jsx';
+import Auth from '@/pages/auth/Auth.jsx';
 
 const index = () => {
   return (
@@ -28,6 +30,7 @@ const index = () => {
       <App>
         <Switch>
           <Redirect from="/" to="/admin" exact></Redirect>
+          <Route path="/login" component={() => <Login2></Login2>}></Route>
           <Route path="/admin" component={() => <Home>
             <Switch>
               <Redirect from="/admin" to="/admin/home" exact></Redirect>
@@ -46,6 +49,7 @@ const index = () => {
               <Route path="/admin/order" component={() => <Order></Order>}></Route>
               <Route path="/admin/bikeMap" component={() => <BikeMap></BikeMap>}></Route>
               <Route path="/admin/charts" component={() => <Charts></Charts>}></Route>
+              <Route path="/admin/permission" component={() => <Auth></Auth>}></Route>
             </Switch>
           </Home>}></Route>
           <Route path="*" component={() => <NotFound></NotFound>}></Route>
