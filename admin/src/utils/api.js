@@ -30,8 +30,8 @@ export const addCities = (params) => http.post('/cities/manage/add', params)
 export const ordersList = (params) => http.post('/orders/list', params)
 
 // 登录
-export const userLogin = (params) => http.post('http://localhost:4000/api/users/login', params)
+export const userLogin = (params) => http.post('/users/login', params)
 
 // 权限列表
-export const userList = (params) => http.get('http://localhost:4000/api/users/list', params)
+export const userList = (params) => http.get('/users/list', params)
 

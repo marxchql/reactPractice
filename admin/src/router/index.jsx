@@ -23,6 +23,7 @@ import BikeMap from '@/pages/bikeMap/BikeMap.jsx';
 import Charts from '@/pages/charts/Charts.jsx';
 import Login2 from '@/login/Login.jsx';
 import Auth from '@/pages/auth/Auth.jsx';
+import Rich from '@/pages/rich/Rich.jsx';
 
 const index = () => {
   return (
@@ -50,6 +51,7 @@ const index = () => {
               <Route path="/admin/bikeMap" component={() => <BikeMap></BikeMap>}></Route>
               <Route path="/admin/charts" component={() => <Charts></Charts>}></Route>
               <Route path="/admin/permission" component={() => <Auth></Auth>}></Route>
+              <Route path="/admin/rich" component={() => <Rich></Rich>}></Route>
             </Switch>
           </Home>}></Route>
           <Route path="*" component={() => <NotFound></NotFound>}></Route>
